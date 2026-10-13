@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Book Explorer | APSIT</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #263238;
+      margin: 0;
+    }
+
+    header {
+      background: linear-gradient(120deg, #123458, #2563a6);
+      color: white;
+      padding: 30px 15px;
+      text-align: center;
+    }
+
+    .navbar {
+      background: #0b2545;
+    }
+
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+      color: white;
+    }
+
+    .navbar .nav-link:hover {
+      color: #ffd166;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 35px 0 25px;
+      font-weight: bold;
+      color: #123458;
+    }
+
+    .book-card {
+      height: 100%;
+      border: 1px solid #d9e2ef;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .book-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+    }
+
+    .book-card img {
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .book-card .card-body {
+      padding: 18px;
+    }
+
+    .book-price {
+      font-size: 1.15rem;
+      font-weight: bold;
+      color: #16834a;
+    }
+
+    .custom-section {
+      background: white;
+      padding: 25px;
+      margin-top: 25px;
+      margin-bottom: 30px;
+      border: 1px solid #dce4ee;
+      border-radius: 12px;
+    }
+
+    .form-label {
+      font-weight: 600;
+    }
+
+    footer {
+      background: #0b2545;
+      color: white;
+      padding: 20px;
+      margin-top: 35px;
+      text-align: center;
+    }
+
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 1.7rem;
+      }
+
+      .book-card img {
+        height: 190px;
+      }
+
+      .custom-section {
+        padding: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Online Book Explorer</h1>
+    <p class="mb-0">Discover, Explore and Register Your Favourite Books</p>
+  </header>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Book Explorer</a>
+
+      <button class="navbar-toggler bg-light" type="button"
+              data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+              aria-controls="mainNavbar" aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#books">Books</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#categories">Categories</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section id="home" class="container text-center py-4">
+    <h2>Welcome to Our Digital Library</h2>
+    <p>Explore books from programming, databases, web development,
+       artificial intelligence and fiction.</p>
+    <span class="badge text-bg-primary">Explore Knowledge</span>
+    <span class="badge text-bg-success">6 Featured Books</span>
+  </section>
+
+  <!-- Book Section -->
+  <main class="container" id="books">
+    <h2 class="section-title">Featured Books</h2>
+
+    <div class="row g-4">
+
+      <!-- Book 1 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card book-card">
+          <img src="https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg"
+               class="card-img-top" alt="Clean Code book cover">
+          <div class="card-body">
+            <h5 class="card-title">Clean Code</h5>
+            <p class="mb-1"><strong>Author:</strong> Robert C. Martin</p>
+            <p><strong>Category:</strong> Programming</p>
+            <p class="book-price">₹650</p>
+            <button class="btn btn-primary"
+                    onclick="viewDetails('Clean Code','Robert C. Martin','Programming','₹650')">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 2 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card book-card">
+          <img src="https://covers.openlibrary.org/b/isbn/9780073523323-L.jpg"
+               class="card-img-top" alt="Database system book cover">
+          <div class="card-body">
+            <h5 class="card-title">Database System Concepts</h5>
+            <p class="mb-1"><strong>Author:</strong> Abraham Silberschatz</p>
+            <p><strong>Category:</strong> Database</p>
+            <p class="book-price">₹750</p>
+            <button class="btn btn-primary"
+                    onclick="viewDetails('Database System Concepts','Abraham Silberschatz','Database','₹750')">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 3 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card book-card">
+          <img src="https://covers.openlibrary.org/b/isbn/9780596007126-L.jpg"
+               class="card-img-top" alt="Head First HTML and CSS book cover">
+          <div class="card-body">
+            <h5 class="card-title">Head First HTML and CSS</h5>
+            <p class="mb-1"><strong>Author:</strong> Elisabeth Robson</p>
+            <p><strong>Category:</strong> Web Development</p>
+            <p class="book-price">₹550</p>
+            <button class="btn btn-primary"
+                    onclick="viewDetails('Head First HTML and CSS','Elisabeth Robson','Web Development','₹550')">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 4 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card book-card">
+          <img src="https://covers.openlibrary.org/b/isbn/9780134610993-L.jpg"
+               class="card-img-top" alt="Artificial intelligence book cover">
+          <div class="card-body">
+            <h5 class="card-title">Artificial Intelligence</h5>
+            <p class="mb-1"><strong>Author:</strong> Stuart Russell</p>
+            <p><strong>Category:</strong> Artificial Intelligence</p>
+            <p class="book-price">₹900</p>
+            <button class="btn btn-primary"
+                    onclick="viewDetails('Artificial Intelligence','Stuart Russell','Artificial Intelligence','₹900')">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 5 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card book-card">
+          <img src="https://covers.openlibrary.org/b/isbn/9780743273565-L.jpg"
+               class="card-img-top" alt="The Great Gatsby book cover">
+          <div class="card-body">
+            <h5 class="card-title">The Great Gatsby</h5>
+            <p class="mb-1"><strong>Author:</strong> F. Scott Fitzgerald</p>
+            <p><strong>Category:</strong> Fiction</p>
+            <p class="book-price">₹350</p>
+            <button class="btn btn-primary"
+                    onclick="viewDetails('The Great Gatsby','F. Scott Fitzgerald','Fiction','₹350')">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Book 6 -->
+      <div class="col-12 col-sm-6 col-md-4">
+        <div class="card book-card">
+          <img src="https://covers.openlibrary.org/b/isbn/9780131103627-L.jpg"
+               class="card-img-top" alt="The C Programming Language book cover">
+          <div class="card-body">
+            <h5 class="card-title">The C Programming Language</h5>
+            <p class="mb-1"><strong>Author:</strong> Brian W. Kernighan</p>
+            <p><strong>Category:</strong> Programming</p>
+            <p class="book-price">₹500</p>
+            <button class="btn btn-primary"
+                    onclick="viewDetails('The C Programming Language','Brian W. Kernighan','Programming','₹500')">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Book Details Modal -->
+  <div class="modal fade" id="detailsModal" tabindex="-1"
+       aria-labelledby="detailsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailsTitle">Book Details</h5>
+          <button type="button" class="btn-close"
+                  data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="detailsBody"></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category Section -->
+  <section class="container custom-section" id="categories">
+    <h2 class="section-title mt-1">Browse Categories</h2>
+
+    <div class="dropdown text-center">
+      <button class="btn btn-success dropdown-toggle"
+              type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+        Select Book Category
+      </button>
+
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#books">Programming</a></li>
+        <li><a class="dropdown-item" href="#books">Database</a></li>
+        <li><a class="dropdown-item" href="#books">Web Development</a></li>
+        <li><a class="dropdown-item" href="#books">Artificial Intelligence</a></li>
+        <li><a class="dropdown-item" href="#books">Fiction</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Registration Form -->
+  <section class="container custom-section" id="register">
+    <h2 class="section-title mt-1">Book Registration Form</h2>
+
+    <form id="bookForm">
+      <div class="row g-3">
+
+        <div class="col-md-6">
+          <label for="bookName" class="form-label">Book Name</label>
+          <input type="text" class="form-control" id="bookName"
+                 placeholder="Enter book name" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="authorName" class="form-label">Author Name</label>
+          <input type="text" class="form-control" id="authorName"
+                 placeholder="Enter author name" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="isbn" class="form-label">ISBN</label>
+          <input type="text" class="form-control" id="isbn"
+                 placeholder="Enter ISBN" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="category" class="form-label">Category</label>
+          <select class="form-select" id="category" required>
+            <option value="">Choose category</option>
+            <option>Programming</option>
+            <option>Database</option>
+            <option>Web Development</option>
+            <option>Artificial Intelligence</option>
+            <option>Fiction</option>
+          </select>
+        </div>
+
+        <div class="col-md-6">
+          <label for="price" class="form-label">Price (₹)</label>
+          <input type="number" class="form-control" id="price"
+                 min="0" step="0.01" placeholder="Enter price" required>
+        </div>
+
+        <div class="col-md-6">
+          <label for="availability" class="form-label">Availability</label>
+          <select class="form-select" id="availability" required>
+            <option value="">Choose availability</option>
+            <option>Available</option>
+            <option>Not Available</option>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="description" class="form-label">
+            Book Description
+          </label>
+          <textarea class="form-control" id="description"
+                    rows="4" placeholder="Enter book description"
+                    required></textarea>
+        </div>
+
+        <div class="col-12 text-center mt-4">
+          <button type="submit" class="btn btn-primary px-4">
+            Submit
+          </button>
+          <button type="reset" class="btn btn-outline-secondary px-4">
+            Reset
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </section>
+
+  <!-- About Section -->
+  <section class="container text-center py-3" id="about">
+    <h2>About Us</h2>
+    <p>
+      Online Book Explorer is a simple digital library interface
+      designed to help users explore books from different categories.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="mb-1">Department of Information Technology | APSIT</p>
+    <p class="mb-0">Online Book Explorer | Academic Year 2026–27</p>
+  </footer>
+
+  <!-- Bootstrap JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    function viewDetails(title, author, category, price) {
+      document.getElementById("detailsTitle").textContent = title;
+
+      const body = document.getElementById("detailsBody");
+      body.replaceChildren();
+
+      [
+        ["Author: ", author],
+        ["Category: ", category],
+        ["Price: ", price]
+      ].forEach(([label, value]) => {
+        const p = document.createElement("p");
+        const strong = document.createElement("strong");
+        strong.textContent = label;
+        p.append(strong, document.createTextNode(value));
+        body.appendChild(p);
+      });
+
+      bootstrap.Modal.getOrCreateInstance(
+        document.getElementById("detailsModal")
+      ).show();
+    }
+
+    document.getElementById("bookForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      alert("Book registration form submitted successfully!");
+
+      // This is a frontend demonstration.
+      // Save records to a database by connecting a backend API.
+    });
+  </script>
+
+</body>
+</html>
